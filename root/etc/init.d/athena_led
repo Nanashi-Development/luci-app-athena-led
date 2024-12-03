@@ -25,7 +25,14 @@ start_service() {
   config_get tempFlag $cfg 'tempFlag' '4'
 
   procd_open_instance
-  procd_set_param command $PROG -status "${status}" -seconds "${seconds}" -lightLevel "${lightLevel}" -option "${option}" -value "${value}" -url "${url}" -tempFlag "${tempFlag}"
+  procd_set_param command "$PROG" \
+        --status "${status}" \
+        --seconds "${seconds}" \
+        --light-level "${lightLevel}" \
+        --option "${option}" \
+        --value "${value}" \
+        --url "${url}" \
+        --temp-flag "${tempFlag}"
   procd_set_param respawn
   procd_close_instance
 
