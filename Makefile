@@ -8,7 +8,7 @@ PKG_MAINTAINER:=Athena LED <https://github.com/haipengno1/athena-led>
 PKG_LICENSE:=GPL-3.0-or-later
 PKG_LICENSE_FILES:=LICENSE
 
-PKG_SOURCE:=athena-led-$(ARCH)-musl.tar.gz
+PKG_SOURCE:=athena-led-$(ARCH)-musl-v$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/haipengno1/athena-led/releases/download/v$(PKG_VERSION)
 PKG_HASH:=6e5929e516f713c011facbf5aa2236e2b89d1f5b8312ede83dc684830854bcf9
 
@@ -54,9 +54,8 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_CONF) ./root/etc/config/athena_led $(1)/etc/config/
 	
 	$(INSTALL_DIR) $(1)/usr/sbin
-	$(CP) $(DL_DIR)/$(PKG_SOURCE) $(1)/usr/sbin/athena-led.tar.gz
-	cd $(1)/usr/sbin && tar xf athena-led.tar.gz && rm athena-led.tar.gz
-	chmod 755 $(1)/usr/sbin/athena-led
+	tar xf $(DL_DIR)/$(PKG_SOURCE) -C $(PKG_BUILD_DIR)
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/athena-led $(1)/usr/sbin/
 	
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/zh_Hans.lmo $(1)/usr/lib/lua/luci/i18n/athena_led.zh-cn.lmo
