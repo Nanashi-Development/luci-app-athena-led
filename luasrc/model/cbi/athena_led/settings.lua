@@ -19,18 +19,18 @@ seconds:value("4")
 seconds:value("5")
 seconds.description = translate("Enable carousel display and set interval time in seconds")
 
-seconds = s:option(ListValue, "lightLevel", translate("Display light level"))
-seconds.default = "5"
-seconds.rmempty = false
-seconds:value("0")
-seconds:value("1")
-seconds:value("2")
-seconds:value("3")
-seconds:value("4")
-seconds:value("5")
-seconds:value("6")
-seconds:value("7")
-seconds.description = translate("Display light level desc")
+lightLevel = s:option(ListValue, "lightLevel", translate("Display light level"))
+lightLevel.default = "5"
+lightLevel.rmempty = false
+lightLevel:value("0")
+lightLevel:value("1")
+lightLevel:value("2")
+lightLevel:value("3")
+lightLevel:value("4")
+lightLevel:value("5")
+lightLevel:value("6")
+lightLevel:value("7")
+lightLevel.description = translate("Display light level desc")
 
 status = s:option(MultiValue, "status", translate("side led status"))
 status.default = ""
@@ -59,7 +59,7 @@ customValue.placeholder = translate("Enter your message here")
 customValue.description = translate("Set the custom message to display on the LED screen, Only effective on 'Display Type String'")
 
 url = s:option(Value, "url", translate("api url for get content"))
-url.default = "http://www.baidu.com"
+url.default = "https://ifconfig.me"
 url.rmempty = false
 url.placeholder = translate("Enter your api url here")
 url.description = translate("api url for get content des")
@@ -74,7 +74,7 @@ tempFlag:value("3", translate("wcss-phya1"))
 tempFlag:value("4", translate("cpu"))
 tempFlag:value("5", translate("lpass"))
 tempFlag:value("6", translate("ddrss"))
-tempFlag.description = translate("Set the item display on the LED screen, Only effective on 'Display Type temp'")
+tempFlag.description = translate("Select the temperature sensor, Only effective on 'Display Type temp'")
 
 function m.on_after_commit(self)
     local output = luci.util.exec("/etc/init.d/athena_led reload >/dev/null 2>&1")

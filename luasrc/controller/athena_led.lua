@@ -1,19 +1,25 @@
-module("luci.controller.athena_led", package.seeall)
+local nixio = require "nixio"
+local util = require "luci.util"
+local sys = require "luci.sys"
+local http = require "luci.http"
 
-function index()
+local function index()
     if not nixio.fs.access("/etc/config/athena_led") then
         return
     end
     entry({ "admin", "system", "athena_led" }, firstchild(), _("Athena LED Ctrl"), 80).dependent = false
     entry({ "admin", "system", "athena_led", "general" }, cbi("athena_led/settings"), _("Base Setting"), 1)
-    entry({ "admin", "system", "athena_led", "gift" }, template("athena_led/athena_led_gift"), _("Gift"), 2)
-
     entry({ "admin", "system", "athena_led", "status" }, call("act_status"))
 end
 
-function act_status()
+local function act_status()
     local e = {}
-    e.running = luci.sys.call("pgrep /usr/sbin/athena-led >/dev/null") == 0
-    luci.http.prepare_content("application/json")
-    luci.http.write_json(e)
+    e.running = sys.call("pgrep /usr/sbin/athena-led >/dev/null") == 0
+    http.prepare_content("application/json")
+    http.write_json(e)
 end
+
+return {
+    index = index,
+    act_status = act_status
+}
