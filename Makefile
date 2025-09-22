@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-athena-led
-PKG_VERSION:=0.5.0
+PKG_VERSION:=0.6.0
 PKG_RELEASE:=20250922
 
 PKG_MAINTAINER:=Athena LED <https://github.com/Nanashi-Development/athena-led>
@@ -10,7 +10,7 @@ PKG_LICENSE_FILES:=LICENSE
 
 PKG_SOURCE:=athena-led-$(ARCH)-musl-v$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/Nanashi-Development/athena-led/releases/download/v$(PKG_VERSION)
-PKG_HASH:=bf65ba189e05662f3044038d4a64cdcfd45447f1302dd94df1f39e63b47ace2c
+PKG_HASH:=eac325ce812bd2143015f201e748c8f484064eaaabc393dd0a0789de4fe60b4f
 
 include $(INCLUDE_DIR)/package.mk
 
