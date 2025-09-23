@@ -1,6 +1,6 @@
 ## 项目说明
 
-本项目是 [NONGFAH/luci-app-athena-led](https://github.com/NONGFAH/luci-app-athena-led) 的 fork 版本，专门为适配 [athena-led](https://github.com/haipengno1/athena-led) 的 Rust 版本进行了修改。
+本项目是 [haipengno1/luci-app-athena-led](https://github.com/haipengno1/luci-app-athena-led) 的 fork 版本
 
 # luci-app-athena-led
 
@@ -31,7 +31,7 @@ OpenWrt LuCI 界面的京东云 AX6600 LED 屏幕控制插件。
 2. 在 menuconfig 中选择 LuCI -> Applications -> luci-app-athena-led
 3. 编译并安装
 
-注意：插件会自动从 [athena-led releases](https://github.com/haipengno1/athena-led/releases) 下载对应架构的二进制文件
+注意：插件会自动从 [athena-led releases](https://github.com/Nanashi-Development/athena-led) 下载对应架构的二进制文件
 
 ## 使用说明
 
@@ -47,5 +47,3 @@ OpenWrt LuCI 界面的京东云 AX6600 LED 屏幕控制插件。
 3. 自定义显示
    - 在自定义文本模式下可输入自定义内容
    - 支持通过 HTTP/GET 请求获取远程文本内容
-
-[推荐固件下载地址](https://github.com/VIKINGYFY/OpenWRT-CI/releases)

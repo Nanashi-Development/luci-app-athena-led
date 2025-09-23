@@ -1,4 +1,4 @@
-m = Map("athena_led", translate("Athena led Ctrl"), translate("JDCloud AX6600 LED Screen Ctrl"))
+m = Map("athena_led", translate("Athena LED Ctrl"), translate("JDCloud AX6600 LED Screen Ctrl"))
 
 m:section(SimpleSection).template = "athena_led/athena_led_status"
 
